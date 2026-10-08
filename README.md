@@ -11,7 +11,8 @@ Java와 Spring 기반 백엔드 개발을 중심으로, SQL·웹 클라이언트
 | Java · Java Web | 객체지향, 컬렉션, IO, 스레드, 네트워크, Servlet/JSP | [Java 목차](java/README.md) |
 | Spring · Spring Boot | IoC/DI, AOP, MVC, 인증·권한, 데이터 접근, WebSocket 실습 | [Spring 목차](spring/README.md) |
 | Database | SQL, 서브쿼리, DML, 모델링, JDBC, 트랜잭션 | [DB 목차](database/README.md) |
-| AI · NLP/LLM | Python, PyTorch, CNN, RNN/LSTM, Transformers, Gemini CLI | [AI 학습 목차](ai-llm/README.md) |
+| Python 기초 · 데이터 분석 | 문법, 문자열, 함수, 복합 자료형, CSV 분석·시각화 | [Python 학습 목차](ai-llm/course/python/README.md) |
+| AI · NLP/LLM | PyTorch, CNN, RNN/LSTM, Transformers, Gemini CLI | [AI 학습 목차](ai-llm/README.md) |
 | Frontend | HTML/CSS, JavaScript, jQuery, React, 라우팅·차트 | [Frontend 목차](frontend/README.md) |
 | DevOps | Dockerfile, Docker Compose, 멀티스테이지 빌드, Linux | [DevOps 목차](devops/README.md) |
 
@@ -62,7 +63,7 @@ study/
 - React: 프로젝트별 `package.json`의 실행 스크립트 확인
 - Docker: Compose 설정·환경 변수·볼륨 확인
 
-공개용 사본의 API 키·비밀번호는 `CHANGE_ME`, `REDACTED_*` 또는 환경 변수로 치환했습니다. 실행 전에 개인 설정이 필요합니다. `.env`, IDE 작업 이력, 빌드 산출물, 설치된 의존성, 모델 체크포인트와 대용량 데이터는 공개 대상에서 제외했습니다. 노트북 출력은 제거했습니다.
+공개용 사본의 API 키·비밀번호는 `CHANGE_ME`, `REDACTED_*` 또는 환경 변수로 치환했습니다. 실행 전에 개인 설정이 필요합니다. `.env`, IDE 작업 이력, 빌드 산출물, 설치된 의존성, 모델 체크포인트와 대용량 데이터는 공개 대상에서 제외했습니다. Python CSV 분석 실습에서 사용하는 날씨·인구·지하철 데이터 3개는 함께 포함했습니다. 노트북 출력은 제거했습니다.
 
 ## 기록 원칙
 

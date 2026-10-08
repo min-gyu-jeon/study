@@ -1,13 +1,13 @@
 # Python · 딥러닝 · NLP/LLM
 
-Python 문법과 데이터 처리, PyTorch, CNN, RNN/LSTM, Hugging Face Transformers, Gemini CLI 실습를 다룬 실습 자료입니다. 수업 예제·과제·실험 코드가 함께 포함되어 있습니다.
+Python 문법과 데이터 처리, PyTorch, CNN, RNN/LSTM, Hugging Face Transformers, Gemini CLI 실습을 다룬 실습 자료입니다. 수업 예제·과제·실험 코드가 함께 포함되어 있습니다.
 
 ## 자료 탐색
 
 ### [course](course/)
 
 - [gemini-cli](course/gemini-cli/)
-- [python](course/python/)
+- [Python 기초·데이터 분석 상세 목차](course/python/README.md)
 
 ### [dl-basic](dl-basic/)
 

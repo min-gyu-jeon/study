@@ -11482,6 +11482,27 @@
       "source_sha256": "4c282f6e155c1bc864309236d093f94c00bb6ccebf2ee2beac8bdccca176f866",
       "published_sha256": "4c282f6e155c1bc864309236d093f94c00bb6ccebf2ee2beac8bdccca176f866",
       "changes": []
+    },
+    {
+      "source": "course/python/data-files/weather_data.csv",
+      "destination": "ai-llm/course/python/data-files/weather_data.csv",
+      "source_sha256": "ee02160f426016f42f724de147c6b1aabe8ace2ed7e73a473909480088f3041a",
+      "published_sha256": "ee02160f426016f42f724de147c6b1aabe8ace2ed7e73a473909480088f3041a",
+      "changes": []
+    },
+    {
+      "source": "course/python/data-files/population.csv",
+      "destination": "ai-llm/course/python/data-files/population.csv",
+      "source_sha256": "55a02af21f4b92b53644152e12194d39ccc9da012c3f8a1685c3cf8f39e2b62a",
+      "published_sha256": "55a02af21f4b92b53644152e12194d39ccc9da012c3f8a1685c3cf8f39e2b62a",
+      "changes": []
+    },
+    {
+      "source": "course/python/data-files/subway-data.csv",
+      "destination": "ai-llm/course/python/data-files/subway-data.csv",
+      "source_sha256": "238ff9be2abbe09f05a1d4d452af367e2e6b9abc2a6ecbb123a8a0991123c9d3",
+      "published_sha256": "238ff9be2abbe09f05a1d4d452af367e2e6b9abc2a6ecbb123a8a0991123c9d3",
+      "changes": []
     }
   ]
 }
