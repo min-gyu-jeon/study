@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab Rainbow</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: solid 2px;
+            align-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div id="btn1">버튼</div>
+            </td>
+            
+            <td>
+                <div id="btn2">버튼</div>
+            </td>
+
+            <td>
+                <div id="btn3">버튼</div>
+            </td>
+
+            <td>
+                <div id="btn4">버튼</div>
+            </td>
+
+            <td>
+                <div id="btn5">버튼</div>
+            </td>
+
+            <td>
+                <div id="btn6">버튼</div>
+            </td>
+
+            <td>
+                <div id="btn7">버튼</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="7">
+                <div id="canvas" style="width:100%;height:300px;"></div>
+            </td>
+        </tr>
+
+    </table>
+    <script>
+
+        const colors = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+        window.addEventListener('load', function (event) {
+
+            const div1 = document.querySelector('#btn1');
+            div1.style.backgroundColor = `${colors[0]}`;
+
+            const div2 = document.querySelector('#btn2');
+            div2.style.backgroundColor = `${colors[1]}`;
+
+            const div3 = document.querySelector('#btn3');
+            div3.style.backgroundColor = `${colors[2]}`;
+
+            const div4 = document.querySelector('#btn4');
+            div4.style.backgroundColor = `${colors[3]}`;
+
+            const div5 = document.querySelector('#btn5');
+            div5.style.backgroundColor = `${colors[4]}`;
+
+            const div6 = document.querySelector('#btn6');
+            div6.style.backgroundColor = `${colors[5]}`;
+
+            const div7 = document.querySelector('#btn7');
+            div7.style.backgroundColor = `${colors[6]}`;
+
+            const canvas = document.querySelector('#canvas');
+
+            div1.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div1.style.backgroundColor;
+
+            })
+
+            div2.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div2.style.backgroundColor;
+
+            })
+
+            div3.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div3.style.backgroundColor;
+
+            })
+
+            div4.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div4.style.backgroundColor;
+
+            })
+
+            div5.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div5.style.backgroundColor;
+
+            })
+
+            div6.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div6.style.backgroundColor;
+
+            })
+
+            div7.addEventListener("click", function (event) {
+
+                canvas.style.backgroundColor = div7.style.backgroundColor;
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>

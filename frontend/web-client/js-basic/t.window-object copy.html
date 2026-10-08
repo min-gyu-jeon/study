@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우 객체 연습</title>
+    <style>
+        button {
+            width: 100px;
+            height: 25px;
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id = "message"></div>
+    <script>
+        // 1. 모든 것은 window 객체에 포함 -> 생략 가능
+        //window.alert('hello'); // window 생략 가능
+        //alert('hello');
+
+        //const message2 = document.querySelector('#message2'); 아직 처리 하지 않은 메세지 2사용
+        //message2.innerHTML = "<h3>확인해 주세요</h3>";
+        
+        
+        // 2-1.
+        window.addEventListener("load", function(event){ //브라우저가 html 처리를 완료한 후 발생하는 이벤트 (파일 다운로드 후)
+            const message2 = document.querySelector('#message2');
+            message2.innerHTML += "<h3>확인해 주세요1</h3>";
+        });
+
+        //2-2
+        window.addEventListener("DOMContentLoaded", function(event){ //브라우저가 객체 트리 완성 후 발생하는 이벤트 (파일 다운로드 후)
+            const message2 = document.querySelector('#message2');
+            message2.innerHTML += "<h3>확인해 주세요2</h3>";
+        });
+    </script>
+</body>
+
+<hr>
+<div id ="message2"></div>
+
+</html>

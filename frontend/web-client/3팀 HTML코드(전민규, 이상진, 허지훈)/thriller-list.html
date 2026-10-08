@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thriller</title>
+    <style>
+      body{
+    margin:0;
+    padding:20px;
+    background:#0f172a;
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* 뒤로가기 */
+
+#back-btn{
+    width:100px;
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+    background:#1e293b;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#back-btn:hover{
+    background:#334155;
+}
+
+/* 장르명 */
+
+#genre_name{
+    width:200px;
+    height:100px;
+    margin:10px auto;
+    padding:10px;
+
+    background:#1e293b;
+
+    border-radius:20px;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+/* 설명 */
+
+#genre_explain{
+    width:98%;
+    margin:auto;
+    padding:10px;
+
+    background:#1e293b;
+
+    border-radius:15px;
+
+    text-align:center;
+    color:#d1d5db;
+
+    line-height:2;
+}
+
+/* 영화 목록 */
+
+#movie-divs{
+
+    margin-top:30px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+}
+
+/* 카드 */
+
+.movie-card{
+
+    background:#1e293b;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
+
+}
+
+.movie-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* 포스터 */
+
+.movie-card img{
+
+    width:280px;
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+/* 제목 */
+
+.movie-card h3{
+
+    margin:10px 0;
+    font-size:33px;
+
+}
+
+/* 줄거리 */
+
+.movie-card p{
+
+    color:#d1d5db;
+
+    font-size: 18px;
+
+    line-height:1.6;
+
+    text-align:center;
+
+    margin:30px 4%;
+
+}
+
+/* 날짜 */
+
+.info{
+
+    font-size:20px;
+
+    margin-top:10px;
+
+    color:white;
+
+    font-weight:bold;
+
+    line-height:2;
+
+}
+#lot, #cgv{
+        width: 100px;
+        height: 40px;
+        border-radius: 12px;
+        padding-top : 10px;
+        text-align: center;
+        background-color: rgba(255,255,255,0.05);
+    }
+    </style>
+</head>
+<body>
+    <div id="back-btn" style="padding-top:12px">메인페이지</div>
+    <div id="genre_name">
+        
+        <h1>스릴러<br>(Thriller)</h1>
+    
+    </div>
+        <div id="theater">
+        <h4>영화 예매하러 가기</h4>
+        <div id="lot">롯데시네마</div>
+        <br>
+        <div id="cgv">CGV</div>
+    </div>
+
+     <br>
+
+    <div id="genre_explain">
+        
+        <h3>스릴러 장르는 기본적으로 "도망자"와 "추적자"의 구도를 만들고,
+            <BR>
+            아슬아슬하게 서로 쫒고 쫒기면서 예측하기 어려운 전개를 통해
+            <BR>
+            관객에게 긴장감을 일으키고 작품을 예측하기 어렵게 만드는 장르입니다. </h3>
+    </div>
+
+
+    <div id="movie-divs"></div>
+
+    <script>
+
+         window.addEventListener('load', function(event) {
+            
+            const btn = document.querySelector('#back-btn')
+            
+
+            btn.addEventListener('click', function(event) {
+                history.back();
+                })
+                 const btnLot = document.querySelector('#lot');
+            const cgvLot = document.querySelector('#cgv');
+
+            btnLot.addEventListener('click', (event) => {
+                location.href = "https://www.lottecinema.co.kr/NLCHS?referrer=https://www.google.com/";
+            });
+
+            cgvLot.addEventListener('click', (event)=> {
+                location.href = "https://cgv.co.kr/";
+            });
+
+                
+            const TMDB_ACCESS_TOKEN = 'CHANGE_ME'
+            const URL = "https://api.themoviedb.org/3/discover/movie?with_genres=53&sort_by=popularity.desc&language=ko-KR&page=1"
+
+            const option = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`
+                }
+            }
+            
+            fetch(URL, option)
+                .then(response => response.json())
+                .then(json => {
+                    // console.log(json);
+                
+                    const div = document.querySelector('#movie-divs')
+
+                    for (let i = 0; i < json.results.length; i++) {
+                    // for (let i = 0; i < json.length; i++) {
+                        const movie = json.results[i];
+                        // const movie = json[i];
+                        console.log(movie);
+                        // if(movie.overview = "") {
+                        if(movie.overview == "") { 
+                            continue;
+                        }
+                        
+
+                        div.innerHTML += `
+                        <div class="movie-card">
+                            <a href = "movie-detail.html?id=${movie.id}"><img src="https://image.tmdb.org/t/p/original/${movie.poster_path}"></a>
+
+                            <h3>${movie.title}</h3>
+
+                            <p>${movie.overview}</p>
+
+                            <div class="info">
+                                <div>상영일 : ${movie.release_date}</div>
+                                <div>평점 : ${Math.floor(movie.vote_average)}</div>
+
+                            </div>
+
+                        </div>
+                        `;
+                    
+                        // if(movie.overview = null) {
+                        //     continue ();
+                        // }
+                    }
+                    })
+                  
+            });
+    
+
+
+    </script>
+</body>
+</html>

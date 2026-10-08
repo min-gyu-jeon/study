@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문 (연습)</title>
+</head>
+
+<body>
+
+    <script>
+        //가로 30* 세로 20 박스 테이블 테그 사용 * 한개에 <td> 한개
+        // 빈공간은 <td>&nbsp</td>
+        document.write("<table align='center'>")
+        for (let i = 0; i < 20; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < 30; j++) {
+                if (j == 0 || j == 29 || i == 0 || i == 19) {
+                    document.write("<td>*</td>");
+                } else {
+                    document.write("<td>&nbsp</td>");
+                }
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>")
+    </script>
+</body>
+
+</html>

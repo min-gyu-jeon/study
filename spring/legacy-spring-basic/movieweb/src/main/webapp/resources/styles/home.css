@@ -1,0 +1,154 @@
+:root {
+    font-family: "Segoe UI", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    color: #ffffff;
+    background: #0f172a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background:
+        radial-gradient(circle at 50% 0, rgba(37, 99, 235, 0.22), transparent 36%),
+        #0f172a;
+}
+
+.movie-home {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 64px 0 80px;
+}
+
+.genre-section {
+    text-align: center;
+}
+
+.section-eyebrow {
+    margin: 0 0 10px;
+    color: #60a5fa;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.genre-section h1,
+.review-guide h2 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.section-description {
+    margin: 14px 0 36px;
+    color: #cbd5e1;
+}
+
+.genre-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.genre-card {
+    overflow: hidden;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.genre-card:hover,
+.genre-card:focus-visible {
+    background: rgba(255, 255, 255, 0.11);
+    outline: none;
+    transform: translateY(-9px) scale(1.02);
+}
+
+.genre-poster {
+    height: 460px;
+    background: linear-gradient(145deg, #1e293b, #172033);
+}
+
+.genre-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster-placeholder {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    color: #64748b;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.genre-name {
+    padding: 20px;
+    font-size: 1.45rem;
+    font-weight: 800;
+}
+
+.api-message {
+    min-height: 24px;
+    margin: 22px 0 0;
+    color: #fbbf24;
+}
+
+.movie-timer {
+    margin-top: 12px;
+    color: #94a3b8;
+}
+
+.review-guide {
+    margin-top: 70px;
+    padding: 38px;
+    text-align: left;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.review-guide h2 {
+    font-size: 1.75rem;
+}
+
+.review-guide > p:last-child {
+    margin: 14px 0 0;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+    .genre-container {
+        grid-template-columns: 1fr;
+    }
+
+    .genre-card {
+        width: min(420px, 100%);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .movie-home {
+        width: min(100% - 24px, 1200px);
+        padding-top: 34px;
+    }
+
+    .genre-poster {
+        height: 390px;
+    }
+
+    .review-guide {
+        padding: 26px 22px;
+    }
+}

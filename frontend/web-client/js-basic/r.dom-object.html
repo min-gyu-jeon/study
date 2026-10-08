@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 객체 연습</title>
+    <style>
+        button {
+            width: 100px;
+            height: 25px;
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    원:<input type="text" id="won">
+    <button id ="btn">원 -> 달러</button>
+    달러:<input type="text" id = "dol"><br>
+    <script>
+        //function change(won){
+           // const dol = won * 0.00065;
+            //const changedol = dol;
+           // return changedol;
+       // }
+       // const btn = document.querySelector('#btn');
+       // btn.addEventListener('click',function(event){
+        //    const changedol = document.querySelector('#dol');
+       //     dol.innerHTML = `${changedol}`;
+
+      //  })
+      //1. 찾기
+      const btn = document.querySelector('#btn');
+      //2. 사용하기
+      btn.addEventListener('click',function(event){
+        //1.찾기
+        const won = document.querySelector('#won');
+        //2. 사용하기
+        const wonV = parseFloat(won.value);
+        //1.찾기
+        const dol = document.querySelector('#dol');
+        //2. 사용하기
+        dol.value = wonV * 0.00065; 
+      });
+    </script>
+</body>
+
+</html>

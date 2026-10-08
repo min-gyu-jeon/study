@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 상세 정보</title>
+</head>
+<body>    
+    <div id="message"></div>
+    <script>
+        window.addEventListener('load', function(event) {
+            
+            const div = document.querySelector('#message');
+
+            const qs = new URLSearchParams(window.location.search); // '?a=10&b=hello' -> { 'a': 10, 'b': 'hello'}
+            const id = qs.get('id'); //?...&id=10&... -> id의 값인 10 반환
+
+            const TMDB_ACCESS_TOKEN = 'CHANGE_ME';            
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`
+                }
+            };
+
+            fetch(`https://api.themoviedb.org/3/movie/${id}`, options)
+                .then( function(response) { return response.json(); } )
+                .then( function(json) {
+                    console.log(json);
+                    div.innerHTML = `<h3>${json.title}</h3>` +
+                                    `<h3>${json.release_date}</h3>` +
+                                    `<h3>${json.genres[0].name}</h3>` +
+                                    `<h4>${json.overview}</h4>`; 
+                                    
+                });
+           
+        });
+    </script>
+    
+</body>
+</html>

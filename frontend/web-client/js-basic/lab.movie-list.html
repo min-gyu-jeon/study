@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 목록</title>
+</head>
+
+<body>
+    <h3>추천 SF 영화</h3>
+    <div id="recommend"></div>
+
+    <hr>
+
+    <button id="query-movie">데이터 가져오기</button>
+    <hr>
+    <div id="message"></div>
+
+    <script>
+        window.addEventListener('load', async function () {
+
+            const btn = document.querySelector('#query-movie');
+            const div = document.querySelector('#message');
+            const recommendDiv = document.querySelector('#recommend');
+
+            const TMDB_ACCESS_TOKEN = 'CHANGE_ME';
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`
+                }
+            };
+
+            // ======================
+            // 페이지 로드 시 SF 추천 영화
+            // ======================
+
+            const sfResponse = await fetch(
+                'https://api.themoviedb.org/3/discover/movie?with_genres=878&language=ko-KR&sort_by=popularity.desc',
+                options
+            );
+
+            const sfJson = await sfResponse.json();
+
+            sfJson.results.slice(0, 5).forEach((movie, index) => {
+                recommendDiv.innerHTML += `
+                    <h5>
+                        ${index + 1}.
+                        <a href="movie-detail.html?id=${movie.id}">
+                            ${movie.title}
+                        </a>
+                    </h5>
+                `;
+            });
+
+            // ======================
+            // 버튼 클릭 시 기존 목록
+            // ======================
+
+            btn.addEventListener('click', async function () {
+
+                div.innerHTML = '';
+
+                let page = 1;
+                let totalPages = 1;
+
+                do {
+
+                    const response = await fetch(
+                        `https://api.themoviedb.org/3/keyword/1721/movies?page=${page}`,
+                        options
+                    );
+
+                    const json = await response.json();
+
+                    totalPages = json.total_pages;
+
+                    json.results.forEach((movie) => {
+
+                        div.innerHTML += `
+                            <h5>
+                                <a href="movie-detail.html?id=${movie.id}">
+                                    ${movie.title}
+                                </a>
+                                [${movie.genre_ids}]
+                                [${movie.popularity}]
+                            </h5>
+                        `;
+
+                    });
+
+                    page++;
+
+                } while (page <= totalPages);
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

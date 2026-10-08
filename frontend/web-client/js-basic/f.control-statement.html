@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문(선택문)</title>
+</head>
+<body>
+    <script>
+    //0~100사이 정수 3개 랜덤 추출해서 변수에 저장
+    //변수 이름은 각각 score1, score3, score3 
+    //총점, 평균 계산해서 각각 변수에 저장(total, average)
+    //평균 기준 등급을 계산해서 변수에 저장(grade) : if else 문사용
+    //총점, 평균, 등급 출력        
+    let number1 = Math.random();
+    let number2 = Math.random();
+    let number3 = Math.random();
+    number1 = Math.round(number1*100);
+    number2 = Math.round(number2*100);
+    number3 = Math.round(number3*100);
+    console.log(`뽑힌 숫자 : ${number1}, ${number2}, ${number3}`);
+
+    let total = number1 + number2 + number3;
+    let average = total/3;
+    let grade;
+
+    switch(Math.floor(average/10)){
+        case 10: grade ='A'; break;
+        case 9: grade='A'; break;
+        case 8: grade='B'; break;
+        case 7: grade='C'; break;
+        case 6: grade='D'; break;
+        default: grade='F'; break;
+    }
+    
+    document.write(`<h1 style = 'text-align:center'>[총점: ${total}][평균: ${average}][등급: ${grade}]</h1>`);
+
+    </script>
+    
+</body>
+</html>

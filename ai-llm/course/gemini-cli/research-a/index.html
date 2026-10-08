@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker News Reader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>IT News Explorer</h1>
+            <p>오늘의 최신 IT/기술 뉴스를 검색하고 확인하세요</p>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="관심 있는 IT 키워드를 입력하세요 (예: AI, 애플, 삼성)..." value="IT">
+                <button id="search-btn">검색</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p>뉴스를 불러오는 중...</p>
+        </div>
+        
+        <div id="error-message" class="error-message hidden">
+            <p>뉴스를 불러오는 데 실패했습니다. 잠시 후 다시 시도해주세요.</p>
+        </div>
+
+        <div id="news-container" class="news-grid">
+            <!-- 뉴스 카드가 여기에 동적으로 삽입됩니다 -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hacker News Reader. Data provided by <a href="https://github.com/HackerNews/API" target="_blank">Hacker News API</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

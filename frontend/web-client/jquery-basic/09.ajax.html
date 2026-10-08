@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <style>
+        td {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn-load-post">데이터 가져오기</button>
+    <hr>
+    <table>
+        <tr>
+            <td>
+                <div id="message"></div>
+            </td>
+            <td style="vertical-align: top;">
+                <div id="detail"></div>
+            </td>
+        </tr>
+    </table>
+
+
+    <script src="http://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        $(function () {
+
+            $('#btn-load-post').on('click', function (event) {
+
+                // 1. 동기방식 + 전체
+                //location.href = 'https://jsonplaceholder.typicode.com/posts';
+
+                //2.비동기 방식 +부분
+                $.ajax({
+                    "url": 'https://jsonplaceholder.typicode.com/posts',
+                    "method": 'get', //or post, put, delete ...
+                    "type": 'application/json', //응답 컨텐츠의 종류
+                    "success": function (posts, status, xhr) {  //요청에대한 응답이 성공적으로 도착했을 떄 호출되는 함수
+                        posts.forEach((post, idx) => {//원래 동작을 막는 명령: 여기서는 href 이동
+                            const span = $(`<span>${post.id}.</span>`);
+                            const link = $(`<a>${post.title}</a>`);
+                            link.attr('href', `https://jsonplaceholder.typicode.com/posts/${post.id}`);
+                            link.on('click', (event) => {
+                                event.preventDefault();
+                                const url = $(event.target).attr('href');
+                                $.ajax({
+                                    "url": url,
+                                    "method": "get",
+                                    "type": "application/json",
+                                    "success": function (p, status, xhr) {
+                                        $('#detail').empty()
+                                                    .append ($ (`<h3>${p.id}. ${p.title}</h3>`))
+                                                    .append($(`<h4>${p.body}</h4>`));
+                                    },
+                                    "error": function (xhr, status, err) {
+
+                                    }
+                                });
+                            });
+                            const h3 = $(`<h3></h3>`);
+                            h3.append([span, link]);
+
+                            $('#message').append(h3);
+
+                        });
+                    },
+                    "error": function (xhr, status, err) {   //요청 처리가 실패하면 호출되는 함수
+                        console.log(err);
+                    }
+                })
+            });
+
+        });
+    </script>
+</body>
+
+</html>

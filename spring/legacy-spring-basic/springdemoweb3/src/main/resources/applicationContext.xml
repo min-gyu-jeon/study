@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://mybatis.org/schema/mybatis-spring
+           http://mybatis.org/schema/mybatis-spring.xsd">
+
+	
+	<!-- ======================== 컴포넌트 스캔 ======================== -->
+	
+	<!-- @Service가 적용된 클래스 검색 -->
+	<context:component-scan base-package="com.movieweb.service" />
+	
+	
+	<!-- ======================== DataSource ======================== -->
+	
+	<!-- MariaDB 연결 -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+	
+		<property name="driverClassName"
+				  value="org.mariadb.jdbc.Driver"/>
+				  
+		<!-- DB 이름은 기존 demoweb 사용 -->
+		<property name="jdbcUrl"
+				  value="jdbc:mariadb://localhost:3306/demoweb"/>
+				  
+		<property name="username"
+				  value="human"/>
+				  
+		<property name="password"
+				  value="CHANGE_ME"/>
+				  
+		<property name="maximumPoolSize"
+				  value="10"/>
+				  
+		<property name="minimumIdle"
+				  value="5"/>
+				  
+		<property name="connectionTimeout"
+				  value="30000"/>
+				  
+	</bean>
+	
+	
+	<!-- ======================== MyBatis ======================== -->
+	
+	<bean id="sqlSessionFactory"
+		  class="org.mybatis.spring.SqlSessionFactoryBean">
+		  
+		<!-- MyBatis가 사용할 DB -->
+		<property name="dataSource"
+				  ref="dataSource"/>
+				  
+		<!-- MyBatis 전역 설정 파일 -->
+		<property name="configLocation"
+				  value="classpath:mybatis-config.xml"/>
+				  
+		<!-- Mapper XML 파일 위치 -->
+		<property name="mapperLocations"
+				  value="classpath:com/movieweb/mapper/**/*.xml"/>
+				  
+	</bean>
+	
+	
+	<!-- SqlSessionTemplate -->
+	<bean id="sqlSessionTemplate"
+		  class="org.mybatis.spring.SqlSessionTemplate">
+		  
+		<constructor-arg ref="sqlSessionFactory"/>
+		
+	</bean>
+	
+	
+	<!-- ======================== Mapper Scan ======================== -->
+	
+	<!--
+		com.movieweb.mapper 패키지의 Mapper Interface를 검색해서
+		MyBatis가 구현 객체를 자동으로 생성하고 Spring Bean으로 등록
+	-->
+	<mybatis:scan base-package="com.movieweb.mapper"/>
+
+
+</beans>

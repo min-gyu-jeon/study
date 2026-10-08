@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.movieweb.mapper.MemberMapper">
+
+
+	<!-- 회원가입 -->
+	<insert id="insertMember"
+			parameterType="com.movieweb.dto.MemberDto">
+
+		INSERT INTO member (
+			member_id,
+			passwd,
+			name,
+			email
+		)
+		VALUES (
+			#{memberId},
+			#{passwd},
+			#{name},
+			#{email}
+		)
+
+	</insert>
+
+
+	<!-- 아이디로 회원 조회 : 로그인할 때 사용 -->
+	<select id="selectMemberById"
+        resultType="com.movieweb.dto.MemberDto">
+
+    SELECT
+        member_id AS memberId,
+        passwd,
+        name,
+        email,
+        user_type AS userType,
+        reg_date AS regDate,
+        active
+    FROM member
+    WHERE member_id = #{memberId}
+
+</select>
+
+
+</mapper>

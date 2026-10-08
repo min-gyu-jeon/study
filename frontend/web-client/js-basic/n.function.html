@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+
+<body>
+
+    <script>
+
+        function randomRange(min, max){
+            const gap = max - min;
+            const selectedValue = Math.random() * gap + min;
+            return selectedValue;
+        }
+
+        const selectedValue = randomRange(100,1000);
+
+        document.write(`<h2>뽑힌 숫자 :${selectedValue}</h2>`);
+    </script>
+</body>
+
+</html>

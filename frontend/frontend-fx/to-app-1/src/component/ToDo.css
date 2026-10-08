@@ -1,0 +1,145 @@
+/* ToDo 컴포넌트 전용 스타일 시트 (todo-ui.png 시안 구현) */
+
+.todo-container {
+  width: 500px;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  font-family: 'Malgun Gothic', '맑은 고딕', helvetica, sans-serif;
+}
+
+/* Header */
+.todo-header {
+  background-color: #2bb8d4;
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.todo-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+/* Editor (Input) */
+.todo-editor {
+  display: flex;
+  background-color: #444b54;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.todo-editor-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+
+.todo-editor-input::placeholder {
+  color: #a5acb5;
+}
+
+.todo-editor-btn {
+  background-color: #798089;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-editor-btn:hover {
+  background-color: #6c737a;
+}
+
+/* List */
+.todo-list {
+  max-height: 450px;
+  overflow-y: scroll;
+  background-color: #ffffff;
+}
+
+/* Scrollbar Styling to match the screenshot */
+.todo-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+  background: #f1f3f5;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 0px;
+  border: 2px solid #f1f3f5;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Item */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e9ecef;
+  background-color: #ffffff;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.todo-checkbox {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #212529;
+  border-radius: 1px;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.todo-text {
+  font-size: 15px;
+  color: #212529;
+}
+
+.todo-delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-delete-btn svg {
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.todo-delete-btn:hover svg {
+  opacity: 0.8;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문 (연습)</title>
+</head>
+
+<body>
+    <script>
+        let dan = Math.floor(Math.random() * 9) + 1; // (0 ~ 0.999999) * 9 -> (0 ~ 8.99999999) -> 0 ~ 8 -> 1 ~ 9
+        // 1-2. 뽑힌 숫자에 해당하는 구구단을 출력
+        document.write("<table align='center'>");
+        for (let i = 1; i < 10; i++) {
+            document.write(`<tr style='background-color:${i % 2 == 0 ? 'orange' : 'white'}'>`);
+            document.write(`<td>${dan} x ${i} =</td>`);
+            document.write(`<td style='text-align:right'>${dan * i}</td>`);
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+        document.write("<table border = '1' align ='center'>");
+
+        for (let i = 1; i < 10; i++) {
+
+            document.write('<tr>')
+
+            for (let j = 1; j < 10; j++) {
+
+                document.write(`<td>${j} x ${i} =${i * j}</td>`);
+
+            }
+
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

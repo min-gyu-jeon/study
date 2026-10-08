@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan
+		base-package="com.movie.controller" />
+
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/static/**" location="/public/"/>
+    <mvc:resources mapping="/css/**" location="classpath:/css/"/>
+
+	<!-- JSP 파일 경로 설정 -->
+	<!-- "board/list" → /WEB-INF/views/board/list.jsp 로 변환 -->
+	<bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- JSP 파일 저장 경로 접두사 -->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!-- JSP 파일 확장자 접미사 -->
+        <property name="suffix" value=".jsp"/>
+        <!-- 뷰 우선순위 (여러 ViewResolver 사용 시 낮을수록 먼저 적용) -->
+        <property name="order" value="1"/>
+    </bean>
+    
+</beans>    
+    

@@ -1,0 +1,21 @@
+# Local secrets and generated files
+.env
+.env.*
+!.env.example
+**/node_modules/
+**/target/
+**/build/
+**/bin/
+**/dist/
+**/.metadata/
+**/.idea/
+**/.gradle/
+**/.venv/
+**/venv/
+**/__pycache__/
+*.class
+*.pyc
+*.pt
+*.pth
+*.pkl
+*.log

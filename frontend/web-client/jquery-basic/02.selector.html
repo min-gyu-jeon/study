@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습</title>
+</head>
+
+<body>
+    <div id="container">
+        <h2>공지사항</h2>
+        <ul id="notice-list">
+            <li class="important">필독 공지 1</li>
+            <li>일반 공지 2</li>
+            <li class="important">필독 공지 3</li>
+            <li>일반 공지 4</li>
+            <li class="new">새 공지 5</li>
+        </ul>
+        <button id="btn-hide">짝수 항목 숨기기</button>
+        <button id="btn-highlight">필독 강조</button>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-4.0.0.js"></script>
+
+    <script>
+
+        jQuery(function () {
+            // const elements = $('.important');
+            // elements.css('color','red'); //elemets.style.color ='red'와 같은 내용
+            $('.important').css('color','red');
+
+            $('li:nth-child(2n)').css('background-color','orange');
+
+            $('#btn-hide').on('click',function(event){   //on = addEventListener
+                 $('li:nth-child(2n)').hide();
+            })
+            $('#btn-highlight').on('click',function(event){   //on = addEventListener
+                 $('.important').css('font-weight', 'bold');
+            })
+
+            alert($('li').last().prev().text()) ; // last(): 마지막 요소 찾기, prev(): 이전 요소
+        });
+    </script>
+</body>
+
+</html>

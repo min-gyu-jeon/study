@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 글쓰기</title>
+</head>
+
+<body>
+    <form action="j.form.html" method="post">
+        <input type="hidden" name="hidden_value" value="100"> <!--화면에 표시되지 않지만 데이터는 서버로 전송하는 요소-->
+        <table border="1" width="500" align="center">
+            <caption>게시판 글쓰기</caption>
+            <tr>
+                <th style="width: 150px; height: 30px">작성자*</th>
+                <td>
+                    <input type="text" name="writer" required>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px; height: 30px">비밀번호*</th>
+                <td>
+                    <input type="password" name="PW" required>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px; height: 30px">제목*</th>
+                <td>
+                    <input type="text" name="text" required>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px; height: 30px">카테고리</th>
+                <td>
+                    <select name="Category_select">
+                        <option value="announcement">공지사항</option>
+                        <option value="question">질문</option>
+                        <option value="board">자유게시판</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px; height: 30px">공개 여부</th>
+                <td>
+                    <input type="radio" name="public" value="public">공개
+                    <input type="radio" name="public" value="private">비공개
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px; height: 30px">내용*</th>
+                <td>
+                    <textarea name="greetings" rows="5" cols="50" style="resize: none; "
+                        placeholder="5줄 이상 입력" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px; height: 30px">첨부파일</th>
+                <td>
+                    <input type="file" accept="image/*" name="picture">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="checkbox" name="interest" value="movie">게시글 등록에 동의 합니다.
+                    <br>
+                    <input type="submit" value="등록">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+
+</html>

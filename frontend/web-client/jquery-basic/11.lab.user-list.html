@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch 함수 연습</title>
+    <style>
+        table {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        th {
+            border: solid 1px black;
+            height: 50px;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        button {
+            height: 50px;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="request-user">유저 데이터 가져오기</button>
+    </div>
+    <hr>
+    <table>
+        <tr>
+            <th>이름</th>
+            <th>이메일</th>
+            <th>전화번호</th>
+            <th>회사이름</th>
+        </tr>
+    </table>
+    <script src="http://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        //아래 코드를 jquery를 이용하여 변경
+        //데이터 조회 결과를 tr과 td를 사용해서 표시
+        $(function(){
+            $('#request-user').on('click',function(event){
+                const table = $('table');
+                $.ajax({
+                    "url":'https://jsonplaceholder.typicode.com/users',
+                    "method" : 'get',
+                    "type": 'application/json',
+                    "success": function (users, status, xhr){
+                        
+                        users.forEach((user,idx)=>{
+                            const tr = $('<tr></tr>');
+                            $('<th></th>').text(`${user.name}`).appendTo(tr);
+                            $('<th></th>').text(`${user.email}`).appendTo(tr);
+                            $('<th></th>').text(`${user.phone}`).appendTo(tr);
+                            $('<th></th>').text(`${user.company.name}`).appendTo(tr);
+                            table.append(tr);
+                        });
+
+                    }
+                });
+                
+
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

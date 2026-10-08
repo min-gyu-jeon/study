@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        function drawBox(width=30, height=15) {
+
+            document.write("<table>");
+            for (let y = 0; y < height; y++) {
+                document.write("<tr>");
+                for (let x = 0; x < width; x++) {
+                    if (x == 0 || x == width - 1 || y == 0 || y == height - 1) { // a || b --> or a 또는 b 중 한 개만 true여도 전체 true
+                        document.write("<td>*</td>");
+                    } else {
+                        document.write("<td> </td>");
+                    }
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+        function callDrawBox() {
+            const w = 20, h = 10;
+            drawBox(w, h); // 함수 호출 : 함수 실행
+            drawBox(50, 20);
+            drawBox();
+            drawBox(100);  //전달인자 1번쨰는 100 2번째는 기본값 사용
+            document.write(`<h2>${w}</h2>`);
+        }
+        callDrawBox();
+    </script>
+</body>
+
+</html>

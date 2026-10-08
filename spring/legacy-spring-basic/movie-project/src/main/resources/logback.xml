@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%level] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 내가 작성한 코드는 DEBUG 수준까지 출력 -->
+    <logger name="com.food" level="DEBUG"/>
+
+    <!-- MyBatis SQL 실행 내용 출력 -->
+    <logger name="com.food.mapper" level="TRACE"/>
+
+    <!-- 스프링 프레임워크 로그는 WARN 이상만 출력 -->
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

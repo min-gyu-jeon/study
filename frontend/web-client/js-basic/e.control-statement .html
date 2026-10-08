@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문(선택문)</title>
+</head>
+<body>
+    <script>
+    //0~100사이 정수 3개 랜덤 추출해서 변수에 저장
+    //변수 이름은 각각 score1, score3, score3 
+    //총점, 평균 계산해서 각각 변수에 저장(total, average)
+    //평균 기준 등급을 계산해서 변수에 저장(grade) : if else 문사용
+    //총점, 평균, 등급 출력        
+    let number1 = Math.random();
+    let number2 = Math.random();
+    let number3 = Math.random();
+    number1 = Math.round(number1*100);
+    number2 = Math.round(number2*100);
+    number3 = Math.round(number3*100);
+    console.log(`뽑힌 숫자 : ${number1}, ${number2}, ${number3}`);
+
+    let total = number1 + number2 + number3;
+    let average = total/3;
+    let grade;
+
+    // if(average >= 90){
+    //     grade ='A';
+    // }
+    // else if(average >= 80){
+    //     grade ='B';
+    // }
+    // else if(average >= 70){
+    //     grade ='C';
+    // }
+    // else if(average >= 60){
+    //     grade ='D';
+    // }
+    // else if(average >= 50){
+    //     grade ='E';
+    // }
+    // else {
+    //     grade ='F';
+    // }
+    // document.write(`<h1 style = 'text-align:center'>[총점: ${total}][평균: ${average}][등급: ${grade}]</h1>`);
+    // if(average >= 60){
+    //     grade ='합격';
+    // }
+    // else {
+    //     grade ='불합격';
+    // }
+    // document.write(`<h1 style = 'text-align:center'>[총점: ${total}][평균: ${average}][등급: ${grade}]</h1>`);
+    
+    grade = average >= 60 ? '합격' : '불합격';
+    //     if(average >= 60){
+    //     grade ='합격';
+    // }
+    // else {
+    //     grade ='불합격';
+    // }
+    document.write(`<h1 style = 'text-align:center'>[총점: ${total}][평균: ${average}][등급: ${grade}]</h1>`);
+
+    </script>
+    
+</body>
+</html>

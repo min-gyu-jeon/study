@@ -1,0 +1,76 @@
+<!-- src/main/resources/templates/layout/default.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} + ' | 이미지 게시판'">이미지 게시판</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<!-- 네비게이션 프래그먼트 -->
+<nav th:fragment="nav">
+    <div class="container">
+        <a class="brand" th:href="@{/}">📋 이미지 게시판</a>
+        <div>
+            <a th:href="@{/boards}">게시글 목록</a>
+            &nbsp;|&nbsp;
+
+            <!-- 로그인 상태일 때 -->
+            <span sec:authorize="isAuthenticated()">
+                <span sec:authentication="principal.nickname"
+                      style="color:#adb5bd; font-size:0.9rem;"></span>님
+                &nbsp;|&nbsp;
+                <a th:href="@{/boards/create}">글쓰기</a>
+                &nbsp;|&nbsp;
+                <form th:action="@{/members/logout}" method="post"
+                      style="display:inline;">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                    <button type="submit"
+                            style="background:none; border:none; color:#fff; cursor:pointer;">
+                        로그아웃
+                    </button>
+                </form>
+            </span>
+
+            <!-- 비로그인 상태일 때 -->
+            <span sec:authorize="!isAuthenticated()">
+                <a th:href="@{/members/login}">로그인</a>
+                &nbsp;|&nbsp;
+                <a th:href="@{/members/register}">회원가입</a>
+            </span>
+
+            <span style="margin-left: 10px">
+                <a th:href="@{''(lang=ko)}">한국어</a>
+                |
+                <a th:href="@{''(lang=en)}">English</a>
+            </span>
+
+        </div>
+    </div>
+</nav>
+
+<!-- ① layout/default.html — 기존 footer fragment 아래에 추가 -->
+<div th:fragment="flashMessage"
+     th:if="${errorMessage}"
+     style="background:#f8d7da; color:#842029; padding:12px 20px;
+            border-bottom:1px solid #f5c2c7; text-align:center;">
+    <span th:text="${errorMessage}"></span>
+</div>
+
+
+
+
+
+
+<!-- 푸터 프래그먼트 -->
+<footer th:fragment="footer">
+    <div class="container" style="text-align:center; padding: 30px 0; color: #aaa; font-size: 0.85rem;">
+        © 2026 이미지 게시판
+    </div>
+</footer>
+
+</body>
+</html>

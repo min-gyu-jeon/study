@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 객체 연습</title>
+    <style>
+        button {
+            width: 100px;
+            height: 25px;
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">오늘의 운세</button>
+    <hr>
+    <div id="message"></div>
+    <script>
+        const fortunes = [
+            "오늘은 예상치 못한 좋은 소식이 들려올 수 있습니다. 작은 기회를 놓치지 마세요.",
+            "계획했던 일이 생각보다 지연될 수 있습니다. 조급함이 실수를 부를 수 있습니다.",
+            "주변 사람들과의 대화에서 유용한 정보를 얻게 될 가능성이 높습니다.",
+            "금전 관련 판단에 신중함이 필요합니다. 충동적인 소비는 후회를 남길 수 있습니다.",
+            "평소보다 집중력이 높아져 어려운 문제도 쉽게 해결할 수 있습니다.",
+            "사소한 오해가 인간관계의 갈등으로 이어질 수 있으니 말 한마디를 조심하세요.",
+            "새로운 도전을 시작하기에 좋은 날입니다. 자신감을 가져보세요.",
+            "체력 관리에 신경 써야 합니다. 무리한 일정은 피하는 것이 좋습니다.",
+            "기다리던 결과에서 만족스러운 성과를 얻을 가능성이 있습니다.",
+            "예상치 못한 변수로 인해 계획 변경이 필요할 수 있습니다.",
+            "도움을 요청하면 생각보다 쉽게 협조를 얻을 수 있는 날입니다.",
+            "중요한 약속이나 일정이 헷갈릴 수 있으니 다시 한번 확인하세요.",
+            "작은 행운이 연속으로 찾아오며 기분 좋은 하루가 될 수 있습니다.",
+            "지나친 자신감이 실수로 이어질 수 있으니 겸손한 태도가 필요합니다.",
+            "새로운 인연이나 좋은 만남이 기대되는 하루입니다.",
+            "피로가 누적되어 집중력이 떨어질 수 있으니 충분한 휴식을 취하세요.",
+            "노력한 만큼 인정받을 가능성이 높아 보입니다.",
+            "예상보다 경쟁이 치열할 수 있으니 철저한 준비가 필요합니다.",
+            "긍정적인 마음가짐이 좋은 결과를 끌어오는 하루가 될 것입니다.",
+            "사소한 문제를 방치하면 더 큰 불편으로 이어질 수 있으니 바로 해결하세요."
+        ];
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', function (event) {
+            const num = Math.random();
+            r = Math.floor(num * 20);
+            const message = document.querySelector('#message');
+            message.innerHTML = `<h3> ${fortunes[r]}</h3>`;
+        });
+    </script>
+</body>
+
+</html>
